@@ -90,8 +90,8 @@
   },
   "camera": {
     "azimuth": -35,
-    "polar": 60,
-    "distance": 1.6
+    "polar": 58,
+    "distance": 1.05
   },
   "hotspots": [
     {
