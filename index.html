@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#14181f">
+<title>3D-Objektansicht</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="css/viewer.css">
+<script type="importmap">
+{ "imports": {
+  "three": "./vendor/three/build/three.module.js",
+  "three/addons/": "./vendor/three/addons/"
+} }
+</script>
+</head>
+<body class="light-day">
+  <div id="stage">
+    <canvas id="c" aria-label="Interaktives 3D-Modell"></canvas>
+    <div id="hotspots" aria-hidden="false"></div>
+    <div id="split" hidden>
+      <div class="split-line"></div>
+      <button class="split-handle" aria-label="Vergleich verschieben">⟷</button>
+      <span class="split-tag left" id="splitL">Vorher</span>
+      <span class="split-tag right" id="splitR">Nachher</span>
+    </div>
+  </div>
+
+  <header id="top">
+    <div class="brand">
+      <div class="logo" id="logo">Ihr<br>Maklerlogo</div>
+      <div class="agency" id="agency">[Agenturname]</div>
+    </div>
+    <div class="titles">
+      <h1 id="title">…</h1>
+      <p id="subtitle"></p>
+    </div>
+    <button class="icon-btn" id="btnInfo" aria-label="Objektdaten">ⓘ</button>
+  </header>
+
+  <div id="hint" class="hint">Wischen zum Drehen · Zwei Finger zum Zoomen</div>
+
+  <nav id="panel">
+    <div class="row" id="rowSlider" hidden>
+      <span class="lbl">Schnitthöhe</span>
+      <input type="range" id="cut" min="0.3" max="3" step="0.01" value="2.3" aria-label="Schnitthöhe">
+      <span class="val" id="cutVal">2,30 m</span>
+    </div>
+    <div class="row chips">
+      <div class="seg" id="segMode" role="tablist" aria-label="Ansicht">
+        <button data-mode="doll" class="on">Puppenhaus</button>
+        <button data-mode="plan">Grundriss</button>
+        <button data-mode="full">Außen</button>
+      </div>
+      <div class="seg" id="segFloor" aria-label="Etage" hidden></div>
+    </div>
+    <div class="row chips">
+      <div class="seg" id="segVariant" aria-label="Variante" hidden></div>
+      <button class="chip" id="btnLight" aria-label="Licht umschalten"><span class="ico">☀︎</span><span class="txt">Tag</span></button>
+      <button class="chip" id="btnRooms" aria-pressed="true"><span class="ico">◉</span><span class="txt">Räume</span></button>
+      <button class="chip accent" id="btnAR"><span class="ico">◈</span><span class="txt">AR</span></button>
+    </div>
+  </nav>
+
+  <footer id="foot">
+    <span>Arbeitsstand – Musterobjekt, fiktiv</span><span class="dot">·</span><span id="footAgency">[Agenturname]</span><span class="dot">·</span><span>Visualisierung, nicht maßstabsverbindlich</span>
+  </footer>
+
+  <div id="card" class="card" hidden>
+    <button class="close" aria-label="Schließen">×</button>
+    <div class="card-name" id="cardName"></div>
+    <div class="card-area" id="cardArea"></div>
+    <div class="card-note" id="cardNote"></div>
+  </div>
+
+  <aside id="sheet" class="sheet" hidden>
+    <div class="sheet-inner">
+      <button class="close" aria-label="Schließen">×</button>
+      <h2>Objektdaten</h2>
+      <dl id="facts"></dl>
+      <div id="energy"></div>
+      <h3>Rauminfos</h3>
+      <ul id="roomlist"></ul>
+      <div class="contact" id="contact"></div>
+      <p class="fine">Musterobjekt – fiktiv. Alle Angaben, Flächen und Werte dienen der Veranschaulichung und sind unverbindlich.</p>
+    </div>
+  </aside>
+
+  <div id="arLayer" class="ar-layer" hidden>
+    <div class="ar-box">
+      <button class="close" aria-label="Schließen">×</button>
+      <h2>In Ihrem Raum ansehen</h2>
+      <div id="arHost"></div>
+      <p id="arMsg" class="fine"></p>
+    </div>
+  </div>
+
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">Ihr Maklerlogo</div>
+      <div class="loader-title" id="loaderTitle">3D-Ansicht wird geladen</div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="loader-pct" id="pct">0 %</div>
+    </div>
+  </div>
+
+  <script type="module" src="js/viewer.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+{
+  "id": "zechenhaus",
+  "_hinweis": "Daten aus beispiel2/grundriss.json + grundriss.md (WoFlV). Koordinaten glTF: x, y oben, z = -Nord. Musterobjekt, fiktiv.",
+  "title": "Zechenhaus-Doppelhaushälfte mit Garten",
+  "subtitle": "Marl · Siedlungshaus · EG + DG · ca. 95,2 m²",
+  "agency": "[Agenturname]",
+  "logo": null,
+  "contact": {
+    "name": "[Ansprechpartner]",
+    "phone": "[Telefon]",
+    "email": "[E-Mail]"
+  },
+  "facts": [
+    {
+      "label": "Wohnfläche",
+      "value": "ca. 95,2 m²"
+    },
+    {
+      "label": "Zimmer",
+      "value": "3 + Küche, Bad, Gäste-WC, HWR"
+    },
+    {
+      "label": "Geschosse",
+      "value": "EG + ausgebautes DG"
+    },
+    {
+      "label": "Anbau",
+      "value": "ehem. Stall (HWR/WC)"
+    },
+    {
+      "label": "Baujahr",
+      "value": "um 1920 (Beispiel)"
+    },
+    {
+      "label": "Dach",
+      "value": "Satteldach 45°, Gaube"
+    }
+  ],
+  "energy": {
+    "type": "Bedarfsausweis",
+    "value": 210,
+    "class": "G",
+    "valueAfter": 85,
+    "classAfter": "C",
+    "carrier": "Gas → Wärmepumpe",
+    "note": "Beispielwerte – kein gültiger Energieausweis"
+  },
+  "variants": [
+    {
+      "id": "vorher",
+      "label": "Vorher",
+      "src": "models/zechenhaus/zechenhaus_vorher.glb"
+    },
+    {
+      "id": "nachher",
+      "label": "Nachher",
+      "src": "models/zechenhaus/zechenhaus_nachher.glb",
+      "default": true
+    }
+  ],
+  "ar": {
+    "src": "models/zechenhaus/zechenhaus_nachher.glb"
+  },
+  "floors": [
+    {
+      "id": "eg",
+      "label": "EG",
+      "base": 0,
+      "ceiling": 2.62
+    },
+    {
+      "id": "dg",
+      "label": "DG",
+      "base": 2.85,
+      "ceiling": 5.3
+    }
+  ],
+  "dollhouse": {
+    "default": 2.3,
+    "min": 0.3,
+    "plan": 1.3
+  },
+  "section": {
+    "match": "^(Wand|Dach|Gaube|Decke|Giebel|Schornstein|Sockel|Unterzug)",
+    "color": "#2a2f38"
+  },
+  "evening": {
+    "lampMatch": "Pendel|leuchte|Lampe",
+    "maxLights": 6
+  },
+  "camera": {
+    "azimuth": -35,
+    "polar": 60,
+    "distance": 1.6
+  },
+  "hotspots": [
+    {
+      "name": "Küche",
+      "area": 12.0,
+      "floor": "eg",
+      "pos": [
+        2.3,
+        1.0,
+        -1.7
+      ]
+    },
+    {
+      "name": "Wohnen/Essen",
+      "area": 20.23,
+      "floor": "eg",
+      "pos": [
+        2.3,
+        1.0,
+        -6.1
+      ]
+    },
+    {
+      "name": "Diele/Flur",
+      "area": 13.93,
+      "floor": "eg",
+      "pos": [
+        5.25,
+        1.0,
+        -2.2
+      ]
+    },
+    {
+      "name": "HWR/Garderobe",
+      "area": 4.83,
+      "floor": "eg",
+      "pos": [
+        4.9,
+        1.0,
+        -9.6
+      ],
+      "note": "Anbau (ehem. Stall)"
+    },
+    {
+      "name": "Gäste-WC",
+      "area": 1.29,
+      "floor": "eg",
+      "pos": [
+        6.3,
+        1.0,
+        -10.85
+      ],
+      "note": "Anbau"
+    },
+    {
+      "name": "Schlafen",
+      "area": 15.99,
+      "floor": "dg",
+      "pos": [
+        2.3,
+        3.85,
+        -2.4
+      ],
+      "areaNote": "Grundfläche 18,08 m², Wohnfläche nach WoFlV 15,99 m²"
+    },
+    {
+      "name": "Bad",
+      "area": 5.17,
+      "floor": "dg",
+      "pos": [
+        5.8,
+        3.85,
+        -1.6
+      ],
+      "areaNote": "Grundfläche 6,28 m²"
+    },
+    {
+      "name": "Kind/Arbeiten",
+      "area": 14.3,
+      "floor": "dg",
+      "pos": [
+        2.3,
+        3.85,
+        -6.8
+      ],
+      "areaNote": "Grundfläche 15,15 m²"
+    },
+    {
+      "name": "Flur DG",
+      "area": 7.48,
+      "floor": "dg",
+      "pos": [
+        5.8,
+        3.85,
+        -6.0
+      ],
+      "areaNote": "Grundfläche 8,59 m²"
+    }
+  ]
+}

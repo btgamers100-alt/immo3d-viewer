@@ -1,0 +1,44 @@
+{
+  "id": "beispiel1",
+  "title": "3-Zimmer-Wohnung mit Südbalkon",
+  "subtitle": "Marl · 1. Obergeschoss · ca. 74,7 m²",
+  "agency": "[Agenturname]",
+  "logo": null,
+  "contact": { "name": "[Ansprechpartner]", "phone": "[Telefon]", "email": "[E-Mail]" },
+  "facts": [
+    { "label": "Wohnfläche", "value": "ca. 74,7 m²" },
+    { "label": "Zimmer", "value": "3" },
+    { "label": "Etage", "value": "1. OG" },
+    { "label": "Balkon", "value": "Süd, 4,9 m²" },
+    { "label": "Baujahr", "value": "1968 (Beispiel)" },
+    { "label": "Raumhöhe", "value": "2,50 m" }
+  ],
+  "energy": {
+    "type": "Bedarfsausweis",
+    "value": 98,
+    "class": "C",
+    "carrier": "Gas",
+    "note": "Beispielwerte – kein gültiger Energieausweis"
+  },
+  "variants": [
+    { "id": "leer", "label": "Leer", "src": "models/beispiel1/wohnung_leer.glb" },
+    { "id": "eingerichtet", "label": "Eingerichtet", "src": "models/beispiel1/wohnung_eingerichtet.glb", "default": true }
+  ],
+  "ar": { "src": "models/beispiel1/wohnung_ar.glb" },
+  "floors": [
+    { "id": "og", "label": "1. OG", "base": 0, "ceiling": 2.5 }
+  ],
+  "dollhouse": { "default": 2.3, "min": 0.3, "plan": 1.3 },
+  "section": { "match": "^(Wand_|Decke|Rohdecke)", "color": "#2a2f38" },
+  "evening": { "lampMatch": "ceiling_lamp", "maxLights": 6 },
+  "camera": { "azimuth": -30, "polar": 52, "distance": 1.45 },
+  "hotspots": [
+    { "name": "Wohnen/Essen", "area": 22.07, "floor": "og", "pos": [2.8, 1.0, -2.15] },
+    { "name": "Schlafen", "area": 15.52, "floor": "og", "pos": [7.6, 1.0, -2.15] },
+    { "name": "Küche", "area": 10.87, "floor": "og", "pos": [1.5, 1.0, -6.35] },
+    { "name": "Flur", "area": 6.94, "floor": "og", "pos": [6.3, 1.0, -4.9] },
+    { "name": "Bad", "area": 6.15, "floor": "og", "pos": [4.2, 1.0, -6.95] },
+    { "name": "Kinderzimmer", "area": 10.75, "floor": "og", "pos": [7.5, 1.0, -6.95] },
+    { "name": "Balkon", "area": 4.86, "areaNote": "zu 50 % = 2,43 m² Wohnfläche", "floor": "og", "pos": [2.8, 0.6, 0.82] }
+  ]
+}
