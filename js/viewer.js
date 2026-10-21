@@ -88,6 +88,12 @@ function applyTexts(c) {
   $('#roomlist').innerHTML = rooms.map((h, i) => `<li data-i="${i}"><span>${h.name}${c.floors?.length > 1 ? ' <small>(' + (c.floors.find((f) => f.id === h.floor)?.label || '') + ')</small>' : ''}</span><span>${h.area ? fmtM2(h.area) : ''}</span></li>`).join('') || '<li><span>Folgt</span><span></span></li>';
   $('#roomlist').onclick = (e) => { const li = e.target.closest('li[data-i]'); if (li) { closeSheet(); focusHotspot(+li.dataset.i); } };
   if (c.energy) $('#energy').innerHTML = energyHTML(c.energy);
+  if (c.videos?.length) {
+    $('#btnVideos').hidden = false;
+    $('#videoList').innerHTML = c.videos.map((v) => `<figure class="vcard">
+      <video controls playsinline preload="metadata" poster="${v.poster}" src="${v.src}"></video>
+      <div class="vt"><b>${v.title}</b><span>${v.duration || ''}</span></div>${v.text ? `<p>${v.text}</p>` : ''}</figure>`).join('');
+  }
   if (c.contact) $('#contact').innerHTML = `<b>Besichtigung anfragen</b><br>${c.contact.name}<br>${c.contact.phone}<br>${c.contact.email}`;
 }
 
@@ -431,6 +437,14 @@ function buildUI() {
   $('#btnRooms').onclick = () => { S.rooms = !S.rooms; $('#btnRooms').setAttribute('aria-pressed', S.rooms); };
   $('#btnAR').onclick = openAR;
   $('#btnInfo').onclick = () => ($('#sheet').hidden = false);
+  $('#btnVideos').onclick = () => { $('#videoSheet').hidden = false; stopAuto(); };
+  $('#videoSheet').onclick = (e) => {
+    if (e.target.id === 'videoSheet' || e.target.classList.contains('close')) {
+      $('#videoSheet').hidden = true;
+      document.querySelectorAll('#videoList video').forEach((v) => v.pause());
+    }
+  };
+  if (Q.get('videos') === '1' && S.cfg.videos?.length) $('#videoSheet').hidden = false;
   $('#sheet').onclick = (e) => { if (e.target.id === 'sheet' || e.target.classList.contains('close')) closeSheet(); };
   $('#card .close').onclick = () => ($('#card').hidden = true);
   $('#arLayer').onclick = (e) => { if (e.target.id === 'arLayer' || e.target.classList.contains('close')) { $('#arLayer').hidden = true; $('#arHost').innerHTML = ''; } };

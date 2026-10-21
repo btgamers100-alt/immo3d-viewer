@@ -190,5 +190,21 @@
       ],
       "areaNote": "Grundfläche 8,59 m²"
     }
+  ],
+  "videos": [
+    {
+      "title": "Rundgang",
+      "src": "videos/zechenhaus/rundgang.mp4",
+      "poster": "videos/zechenhaus/rundgang.jpg",
+      "duration": "0:37",
+      "text": "Kamerafahrt durch das modernisierte Zechenhaus."
+    },
+    {
+      "title": "Puppenhaus-Ansicht",
+      "src": "videos/zechenhaus/puppenhaus.mp4",
+      "poster": "videos/zechenhaus/puppenhaus.jpg",
+      "duration": "0:15",
+      "text": "Das Haus wird aufgeschnitten: alle Räume und Etagen auf einen Blick."
+    }
   ]
 }
